@@ -9,9 +9,9 @@
                     <tab id="Files" keep-alive>
                         <div class="column  is-centered">
                             <documents :id="$route.params.employee"
-                                       ref="documents"
-                                       type="App\Models\Employee"
-                                       @update="$set(count, 'Files', $refs.documents.count)"/>
+                               ref="documents"
+                               type="LaravelEnso\HR\app\Models\Employee"
+                               @update="$set(count, 'Files', $refs.documents.count)"/>
                         </div>
                     </tab>
                     <tab id="Comments" keep-alive>
@@ -19,7 +19,7 @@
                             <div class="column is-two-thirds">
                                 <comments :id="$route.params.employee"
                                     ref="comments"
-                                    type="App\Models\Employee"
+                                    type="LaravelEnso\HR\app\Models\Employee"
                                     @update="$set(count, 'Comments', $refs.comments.count)"/>
                             </div>
                         </div>
