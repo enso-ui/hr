@@ -1,7 +1,7 @@
-const EmployeeIndex = () => import('../../../pages/administration/employees/Index.vue');
+const EmployeeIndex = () => import('../../../pages/employees/Index.vue');
 
 export default {
-    name: 'administration.employees.index',
+    name: 'hr.employees.index',
     path: '',
     component: EmployeeIndex,
     meta: {

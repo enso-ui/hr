@@ -8,7 +8,7 @@ export default {
     component: RouterView,
     meta: {
         breadcrumb: 'employees',
-        route: 'administration.employees.index',
+        route: 'hr.employees.index',
     },
     children: routes,
 };

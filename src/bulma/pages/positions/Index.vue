@@ -1,5 +1,5 @@
 <template>
-<enso-table id="employees"
+<enso-table id="positions"
         class="box is-paddingless raises-on-hover is-rounded"
         :path="path"/>
 </template>
@@ -15,7 +15,7 @@ export default {
 
     data() {
         return {
-            path: this.route('administration.employees.initTable'),
+            path: this.route('hr.positions.initTable'),
         };
     },
 };

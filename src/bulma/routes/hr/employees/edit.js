@@ -1,7 +1,7 @@
-const EmployeeEdit = () => import('../../../pages/administration/employees/Edit.vue');
+const EmployeeEdit = () => import('../../../pages/employees/Edit.vue');
 
 export default {
-    name: 'administration.employees.edit',
+    name: 'hr.employees.edit',
     path: ':employee/edit',
     component: EmployeeEdit,
     meta: {
