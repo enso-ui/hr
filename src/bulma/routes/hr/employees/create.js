@@ -1,7 +1,7 @@
-const EmployeeCreate = () => import('../../../pages/administration/employees/Create.vue');
+const EmployeeCreate = () => import('../../../pages/employees/Create.vue');
 
 export default {
-    name: 'administration.employees.create',
+    name: 'hr.employees.create',
     path: 'create',
     component: EmployeeCreate,
     meta: {

@@ -1,7 +1,7 @@
-const PositionIndex = () => import('../../../pages/administration/positions/Index.vue');
+const PositionIndex = () => import('../../../pages/positions/Index.vue');
 
 export default {
-    name: 'administration.positions.index',
+    name: 'hr.positions.index',
     path: '',
     component: PositionIndex,
     meta: {

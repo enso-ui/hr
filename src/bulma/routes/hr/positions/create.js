@@ -1,7 +1,7 @@
-const PositionCreate = () => import('../../../pages/administration/positions/Create.vue');
+const PositionCreate = () => import('../../../pages/positions/Create.vue');
 
 export default {
-    name: 'administration.positions.create',
+    name: 'hr.positions.create',
     path: 'create',
     component: PositionCreate,
     meta: {

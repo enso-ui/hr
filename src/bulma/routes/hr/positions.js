@@ -1,14 +1,14 @@
 import routeImporter from '@core/modules/importers/routeImporter';
 
-const routes = routeImporter(require.context('./departments', false, /.*\.js$/));
+const routes = routeImporter(require.context('./positions', false, /.*\.js$/));
 const RouterView = () => import('@core/bulma/pages/Router.vue');
 
 export default {
-    path: 'departments',
+    path: 'positions',
     component: RouterView,
     meta: {
-        breadcrumb: 'departments',
-        route: 'administration.departments.index',
+        breadcrumb: 'positions',
+        route: 'hr.positions.index',
     },
     children: routes,
 };
