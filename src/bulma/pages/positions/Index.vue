@@ -1,7 +1,7 @@
 <template>
 <enso-table id="positions"
-        class="box is-paddingless raises-on-hover is-rounded"
-        :path="path"/>
+    class="box is-paddingless raises-on-hover is-rounded"
+    :path="path"/>
 </template>
 
 <script>
