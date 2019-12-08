@@ -9,6 +9,7 @@
                 <v-popover trigger="click"
                     show="true"
                     :open="payroll_id === row.id"
+                    @hide="payroll_id = null"
                     placement="top">
                     <span class="icon is-small is-naked has-margin-left-medium"
                         @click="payroll_id = row.id">
