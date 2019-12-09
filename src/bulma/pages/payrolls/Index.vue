@@ -1,10 +1,29 @@
 <template>
     <div class="wrapper">
+        <div v-if="ready"
+             class="columns is-centered is-multiline">
+            <div class="column is-4">
+                <enso-select-filter v-model="params.employeeIds"
+                    multiple
+                    class="box raises-on-hover"
+                    source="hr.employees.options"
+                    :name="i18n('Employee')"/>
+            </div>
+            <div class="column is-narrow">
+                <boolean-filter class="box raises-on-hover"
+                    v-model="filters.payrolls.is_validated"
+                    icons
+                    :name="i18n('Valid')"/>
+            </div>
+        </div>
         <enso-table id="payrolls"
             ref="table"
             class="box is-paddingless raises-on-hover is-rounded"
             :path="route('hr.payrolls.initTable')"
-            @generate="show_generate = true">
+            :params="params"
+            :filters="filters"
+            @generate="show_generate = true"
+            @reset="$refs.filterState.reset()">
             <template v-slot:row-actions="{row}">
                 <v-popover trigger="click"
                     show="true"
@@ -27,6 +46,13 @@
                 </v-popover>
             </template>
         </enso-table>
+
+        <filter-state ref="filterState"
+            name="payrollFilters"
+            :api-version="apiVersion"
+            :params="params"
+            @ready="ready = true"/>
+
         <GenerateForm v-if="show_generate"
             @submit="show_generate = false; $refs.table.fetch()"
             @close="show_generate = false"/>
@@ -35,7 +61,10 @@
 
 <script>
 
-import { EnsoTable } from '@enso-ui/bulma';
+import {
+    EnsoTable, FilterState, EnsoSelectFilter
+} from '@enso-ui/bulma';
+import { BooleanFilter } from '@enso-ui/filters/bulma';
 import { VPopover } from 'v-tooltip';
 import { faMoneyCheckEditAlt } from '@fortawesome/pro-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -48,14 +77,25 @@ export default {
     name: 'PayrollIndex',
 
     components: {
-        EnsoTable, VPopover, Lines, GenerateForm,
+        EnsoTable, VPopover, Lines, GenerateForm, BooleanFilter, FilterState,
+        EnsoSelectFilter,
     },
 
-    inject: ['route'],
+    inject: ['i18n', 'route'],
 
     data: () => ({
+        apiVersion: 1.2,
+        ready: false,
         payroll_id: null,
         show_generate: false,
+        params: {
+            employeeIds: [],
+        },
+        filters: {
+            payrolls: {
+                is_validated: false,
+            },
+        },
     }),
 };
 
