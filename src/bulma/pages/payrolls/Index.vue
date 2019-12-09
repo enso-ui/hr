@@ -50,6 +50,7 @@
         <filter-state ref="filterState"
             name="payrollFilters"
             :api-version="apiVersion"
+            :filters="filters"
             :params="params"
             @ready="ready = true"/>
 
