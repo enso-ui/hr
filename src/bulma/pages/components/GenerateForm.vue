@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { Modal, EnsoForm } from '@enso-ui/bulma';
+import { EnsoForm, Modal } from '@enso-ui/bulma';
 
 export default {
     name: 'GenerateForm',
