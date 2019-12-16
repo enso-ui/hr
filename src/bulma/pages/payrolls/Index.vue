@@ -40,7 +40,7 @@
                         </a>
                     </template>
                     <template v-slot:component="{hide}">
-                        <lines :ids="selected"
+                        <base-projects :ids="selected"
                             type="LaravelEnso\HR\app\Models\Payroll"
                             @save="hide(); $refs.table.fetch()"/>
                     </template>
@@ -84,7 +84,7 @@ import Popover from '@enso-ui/projects/src/bulma/pages/components/Popover.vue';
 import { faMoneyCheckEditAlt } from '@fortawesome/pro-solid-svg-icons';
 import { faCodeBranch } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import Lines from '@enso-ui/projects/src/bulma/pages/components/Lines.vue';
+import BaseProjects from '@enso-ui/projects/src/bulma/pages/components/Projects.vue';
 import Projects from '../components/Projects.vue';
 import GenerateForm from '../components/GenerateForm.vue';
 
@@ -101,7 +101,7 @@ export default {
         BooleanFilter,
         FilterState,
         EnsoSelectFilter,
-        Lines,
+        BaseProjects,
     },
 
     inject: ['i18n', 'route'],
