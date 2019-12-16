@@ -1140,6 +1140,26 @@
     gsap "^2.1.2"
     vue "^2.5.16"
 
+"@enso-ui/projects@0.1.x":
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/@enso-ui/projects/-/projects-0.1.8.tgz#94d9e39f3af27e2c63f0d31a5f9af5fbdf998810"
+  integrity sha512-UZ3pjwvOfmUhY9OZKYgUsdqkA9TUecs7aCWAmKRXV51KNcvjZU25/Dy9sC+no0OL5+k955bmglafnKNFh7TKRg==
+  dependencies:
+    "@enso-ui/accessories" "2.2.x"
+    "@enso-ui/bulma" "2.2.x"
+    "@enso-ui/directives" "1.0.x"
+    "@enso-ui/forms" "1.3.x"
+    "@enso-ui/mixins" "1.0.x"
+    "@enso-ui/select" "1.1.x"
+    "@enso-ui/tables" "1.2.x"
+    "@enso-ui/ui" "2.2.x"
+    "@fortawesome/fontawesome-svg-core" "^1.2.2"
+    "@fortawesome/free-solid-svg-icons" "^5.2.0"
+    "@fortawesome/pro-solid-svg-icons" "^5.10.1"
+    v-tooltip "^2.0.0-rc.32"
+    vue "^2.5.16"
+    vuex "^3.0.0"
+
 "@enso-ui/roles@1.2.x":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@enso-ui/roles/-/roles-1.2.0.tgz#5de60f9a05828f369dfa58e288f4706068fe4a60"

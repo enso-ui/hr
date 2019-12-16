@@ -1,5 +1,5 @@
 <template>
-    <lines :id="payroll.id"
+    <base-projects :id="payroll.id"
         ref="lines"
         type="LaravelEnso\HR\app\Models\Payroll"
         v-on="$listeners"
@@ -16,18 +16,18 @@
                 {{ i18n('Recalculate') }}<fa icon="sync" class="has-margin-left-small"/>
             </a>
         </template>
-    </lines>
+    </base-projects>
 </template>
 
 <script>
 
-import Lines from '@enso-ui/projects/src/bulma/pages/components/Lines.vue';
+import BaseProjects from '@enso-ui/projects/src/bulma/pages/components/Projects.vue';
 
 export default {
     name: 'Projects',
 
     components: {
-        Lines,
+        BaseProjects,
     },
 
     inject: ['i18n', 'route'],

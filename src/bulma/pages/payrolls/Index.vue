@@ -42,7 +42,7 @@
                     <template v-slot:component="{hide}">
                         <lines :ids="selected"
                             type="LaravelEnso\HR\app\Models\Payroll"
-                            @save="hide()"/>
+                            @save="hide(); $refs.table.fetch()"/>
                     </template>
                 </popover>
             </template>
