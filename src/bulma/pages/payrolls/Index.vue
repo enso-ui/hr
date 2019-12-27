@@ -61,7 +61,7 @@
                                 ref="lines"
                                 type="LaravelEnso\HR\app\Models\Payroll"
                                 @save="$refs[`popover-${row.id}`].hide(); $refs.table.fetch()"
-                                v-if="$refs[`popover-${row.id}`] && $refs[`popover-${row.id}`].isOpen">
+                                v-if="($refs[`popover-${row.id}`] || {}).isOpen">
                                 <template v-slot:actions-left="{processing}">
                                     <a class="button is-info has-margin-left-medium"
                                        :class="{'is-loading': processing}"
@@ -69,7 +69,8 @@
                                            name: 'hr.employees.edit',
                                            params: { employee: row.employee_id },
                                        })">
-                                       {{ i18n('Edit Employee') }} <fa icon="user-tie" class="has-margin-left-small"/>
+                                       {{ i18n('Edit Employee') }}
+                                       <fa icon="user-tie" class="has-margin-left-small"/>
                                     </a>
                                 </template>
                             </splits>
@@ -98,8 +99,8 @@ import { BooleanFilter } from '@enso-ui/filters/bulma';
 import { faCodeBranch } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import Splits from '@enso-ui/projects/src/bulma/pages/components/Splits.vue';
-import GenerateForm from '../components/GenerateForm.vue';
 import { VPopover } from 'v-tooltip';
+import GenerateForm from '../components/GenerateForm.vue';
 
 library.add([faCodeBranch]);
 
