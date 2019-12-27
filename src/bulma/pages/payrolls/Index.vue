@@ -10,10 +10,10 @@
                     :name="i18n('Employee')"/>
             </div>
             <div class="column is-narrow">
-                <boolean-filter v-model="filters.payrolls.is_validated"
+                <boolean-filter v-model="params.is_splited"
                     class="box raises-on-hover"
                     icons
-                    :name="i18n('Valid')"/>
+                    :name="i18n('Splited')"/>
             </div>
         </div>
         <enso-table id="payrolls"
@@ -21,56 +21,71 @@
             class="box is-paddingless raises-on-hover is-rounded"
             :path="route('hr.payrolls.initTable')"
             :params="params"
-            :filters="filters"
             @generate="show_generate = true"
             @reset="$refs.filterState.reset()">
             <template v-slot:global-actions>
-                <popover trigger="click"
-                    placement="top">
-                    <template v-slot:target>
-                        <a v-if="hasSelected"
-                           class="button has-margin-left-small has-background-info has-text-white">
+                <v-popover trigger="click"
+                    placement="top"
+                    ref="popover">
+                    <a v-if="hasSelected"
+                       class="button has-margin-left-small has-background-info has-text-white">
                         <span class="is-hidden-mobile">
-                            {{ i18n('Projects') }}
+                            {{ i18n('Splits') }}
                         </span>
-                            <span class="icon is-small">
+                        <span class="icon is-small">
                             <fa icon="code-branch"/>
                         </span>
-                            <span class="is-hidden-mobile"/>
-                        </a>
-                    </template>
-                    <template v-slot:component="{hide}">
-                        <base-projects :ids="selected"
+                        <span class="is-hidden-mobile"/>
+                    </a>
+                    <template v-slot:popover>
+                        <splits :ids="selected"
                             type="LaravelEnso\HR\app\Models\Payroll"
-                            @save="hide(); $refs.table.fetch()"/>
+                            @save="$refs.popover.hide(); $refs.table.fetch()"
+                            v-if="$refs.popover && $refs.popover.isOpen"/>
                     </template>
-                </popover>
+                </v-popover>
             </template>
 
             <template v-slot:row-actions="{row}">
-                <popover trigger="click"
-                    placement="top">
-                    <template v-slot:target>
-                        <span class="icon is-small is-naked has-margin-left-medium">
-                            <fa icon="money-check-edit-alt" size="sm"/>
-                        </span>
+                <v-popover trigger="click"
+                    placement="top"
+                    :ref="`popover-${row.id}`">
+                    <a class="button is-small is-table-button is-row-button">
+                    <span class="icon is-small">
+                        <fa icon="code-branch" size="sm"/>
+                    </span>
+                    </a>
+                    <template v-slot:popover>
+                        <div style="min-height: 35px; min-width: 350px;">
+                            <splits :id="row.id"
+                                ref="lines"
+                                type="LaravelEnso\HR\app\Models\Payroll"
+                                @save="$refs[`popover-${row.id}`].hide(); $refs.table.fetch()"
+                                v-if="$refs[`popover-${row.id}`] && $refs[`popover-${row.id}`].isOpen">
+                                <template v-slot:actions-left="{processing}">
+                                    <a class="button is-info has-margin-left-medium"
+                                       :class="{'is-loading': processing}"
+                                       @click="$router.push({
+                                           name: 'hr.employees.edit',
+                                           params: { employee: row.employee_id },
+                                       })">
+                                       {{ i18n('Edit Employee') }} <fa icon="user-tie" class="has-margin-left-small"/>
+                                    </a>
+                                </template>
+                            </splits>
+                        </div>
                     </template>
-                    <template v-slot:component="{hide}">
-                        <projects :payroll="row"
-                            @save="row.is_validated = true; hide()"/>
-                    </template>
-                </popover>
+                </v-popover>
             </template>
         </enso-table>
 
         <filter-state ref="filterState"
             name="payrollFilters"
             :api-version="apiVersion"
-            :filters="filters"
             :params="params"
             @ready="ready = true"/>
 
-        <GenerateForm v-if="show_generate"
+        <generate-form v-if="show_generate"
             @submit="show_generate = false; $refs.table.fetch()"
             @close="show_generate = false"/>
     </div>
@@ -80,28 +95,25 @@
 
 import { EnsoSelectFilter, EnsoTable, FilterState } from '@enso-ui/bulma';
 import { BooleanFilter } from '@enso-ui/filters/bulma';
-import Popover from '@enso-ui/projects/src/bulma/pages/components/Popover.vue';
-import { faMoneyCheckEditAlt } from '@fortawesome/pro-solid-svg-icons';
 import { faCodeBranch } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import BaseProjects from '@enso-ui/projects/src/bulma/pages/components/Projects.vue';
-import Projects from '../components/Projects.vue';
+import Splits from '@enso-ui/projects/src/bulma/pages/components/Splits.vue';
 import GenerateForm from '../components/GenerateForm.vue';
+import { VPopover } from 'v-tooltip';
 
-library.add([faMoneyCheckEditAlt, faCodeBranch]);
+library.add([faCodeBranch]);
 
 export default {
     name: 'PayrollIndex',
 
     components: {
         EnsoTable,
-        Popover,
-        Projects,
+        VPopover,
         GenerateForm,
         BooleanFilter,
         FilterState,
         EnsoSelectFilter,
-        BaseProjects,
+        Splits,
     },
 
     inject: ['i18n', 'route'],
@@ -113,11 +125,7 @@ export default {
         show_generate: false,
         params: {
             employeeIds: [],
-        },
-        filters: {
-            payrolls: {
-                is_validated: false,
-            },
+            is_splited: undefined,
         },
     }),
 
