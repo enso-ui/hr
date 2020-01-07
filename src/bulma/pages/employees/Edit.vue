@@ -10,7 +10,7 @@
                         <div class="column  is-centered">
                             <documents :id="$route.params.employee"
                                ref="documents"
-                               type="LaravelEnso\HR\app\Models\Employee"
+                               type="LaravelEnso\HR\App\Models\Employee"
                                @update="$set(count, 'Files', $refs.documents.count)"/>
                         </div>
                     </tab>
@@ -19,7 +19,7 @@
                             <div class="column is-two-thirds">
                                 <comments :id="$route.params.employee"
                                     ref="comments"
-                                    type="LaravelEnso\HR\app\Models\Employee"
+                                    type="LaravelEnso\HR\App\Models\Employee"
                                     @update="$set(count, 'Comments', $refs.comments.count)"/>
                             </div>
                         </div>
