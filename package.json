@@ -27,7 +27,7 @@
     "@enso-ui/forms": "1.3.x",
     "@enso-ui/filters": "1.3.x",
     "@enso-ui/projects": "0.1.x",
-    "@enso-ui/ui": "2.2.x",
+    "@enso-ui/ui": "2.3.x",
     "@fortawesome/fontawesome-svg-core": "^1.2.2",
     "@fortawesome/free-solid-svg-icons": "^5.2.0",
     "@fortawesome/pro-solid-svg-icons": "^5.10.1",
