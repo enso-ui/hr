@@ -133,7 +133,7 @@ export default {
     computed: {
         selected() {
             return this.ready
-                ? this.$refs.table.$refs.table.$refs.table.state.selected
+                ? this.$refs.table.selected()
                 : [];
         },
         hasSelected() {
