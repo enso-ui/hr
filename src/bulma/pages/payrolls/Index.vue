@@ -39,7 +39,7 @@
                     </a>
                     <template v-slot:popover>
                         <splits :ids="selected"
-                            type="LaravelEnso\HR\App\Models\Payroll"
+                            type="LaravelEnso\Hr\App\Models\Payroll"
                             @save="$refs.popover.hide(); $refs.table.fetch()"
                             v-if="$refs.popover && $refs.popover.isOpen"/>
                     </template>
@@ -59,7 +59,7 @@
                         <div style="min-height: 35px; min-width: 350px;">
                             <splits :id="row.id"
                                 ref="lines"
-                                type="LaravelEnso\HR\App\Models\Payroll"
+                                type="LaravelEnso\Hr\App\Models\Payroll"
                                 @save="$refs[`popover-${row.id}`].hide(); $refs.table.fetch()"
                                 v-if="($refs[`popover-${row.id}`] || {}).isOpen">
                                 <template v-slot:actions-left="{processing}">
