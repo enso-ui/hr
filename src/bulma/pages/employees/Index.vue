@@ -6,7 +6,7 @@
 
 <script>
 
-import { EnsoTable } from '@enso-ui/bulma';
+import { EnsoTable } from '@enso-ui/tables/bulma';
 
 export default {
     components: { EnsoTable },

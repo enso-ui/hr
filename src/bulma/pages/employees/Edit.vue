@@ -32,7 +32,8 @@
 
 <script>
 
-import { EnsoForm, Tab } from '@enso-ui/bulma';
+import { EnsoForm } from '@enso-ui/forms/bulma';
+import { Tab } from '@enso-ui/tabs/bulma';
 import { Accessories, Comments, Documents } from '@enso-ui/accessories/bulma';
 
 export default {

@@ -94,7 +94,9 @@
 
 <script>
 
-import { EnsoSelectFilter, EnsoTable, FilterState } from '@enso-ui/bulma';
+import { EnsoSelectFilter } from '@enso-ui/filters/bulma';
+import { FilterState } from '@enso-ui/filters/renderless';
+import { EnsoTable } from '@enso-ui/tables/bulma';
 import { BooleanFilter } from '@enso-ui/filters/bulma';
 import { faCodeBranch } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';

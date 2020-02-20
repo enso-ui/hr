@@ -22,13 +22,15 @@
   "homepage": "https://github.com/enso-ui/hr#readme",
   "dependencies": {
     "@enso-ui/bulma": "2.2.x",
-    "@enso-ui/accessories": "2.3.x",
+    "@enso-ui/accessories": "2.4.x",
     "@enso-ui/transitions": "1.0.x",
-    "@enso-ui/forms": "1.3.x",
-    "@enso-ui/tables": "1.3.x",
-    "@enso-ui/filters": "1.3.x",
-    "@enso-ui/projects": "0.1.x",
-    "@enso-ui/ui": "2.3.x",
+    "@enso-ui/forms": "1.4.x",
+    "@enso-ui/modal": "1.0.x",
+    "@enso-ui/tables": "1.4.x",
+    "@enso-ui/filters": "1.4.x",
+    "@enso-ui/projects": "1.0.x",
+    "@enso-ui/tabs": "1.0.x",
+    "@enso-ui/ui": "2.4.x",
     "@fortawesome/fontawesome-svg-core": "^1.2.2",
     "@fortawesome/free-solid-svg-icons": "^5.2.0",
     "@fortawesome/pro-solid-svg-icons": "^5.10.1",
@@ -38,13 +40,16 @@
     "vue": "^2.5.16"
   },
   "devDependencies": {
-    "eslint": "^5.16.0",
-    "eslint-import-resolver-alias": "^1.1.2",
-    "eslint-plugin-vue": "^5.0.0",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@vue/cli-plugin-babel": "^4.0.5",
     "@vue/cli-plugin-eslint": "^4.0.5",
     "@vue/cli-service": "^4.0.5",
-    "@vue/eslint-config-airbnb": "^5.0.0"
+    "@vue/eslint-config-airbnb": "^5.0.0",
+    "autoprefixer": "^9.6.1",
+    "babel-eslint": "^10.0.1",
+    "cross-env": "^6.0.0",
+    "eslint": "^6.8.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-vue": "^6.0.0"
   }
 }
