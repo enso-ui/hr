@@ -1,6 +1,6 @@
 {
   "name": "@enso-ui/hr",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Basic HR package",
   "main": "src/bulma/pages/hr/Index.vue",
   "scripts": {
