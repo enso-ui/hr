@@ -13,7 +13,7 @@
                 <boolean-filter v-model="params.is_split"
                     class="box raises-on-hover"
                     icons
-                    :name="i18n('Splited')"/>
+                    :name="i18n('With Split')"/>
             </div>
         </div>
         <enso-table id="payrolls"
