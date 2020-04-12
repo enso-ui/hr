@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/enso-ui/hr#readme",
   "dependencies": {
-    "@enso-ui/bulma": "2.2.x",
     "@enso-ui/accessories": "2.4.x",
     "@enso-ui/transitions": "1.0.x",
     "@enso-ui/forms": "1.4.x",
