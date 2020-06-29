@@ -10,7 +10,7 @@
                         <div class="column  is-centered">
                             <documents :id="$route.params.employee"
                                ref="documents"
-                               type="LaravelEnso\Hr\App\Models\Employee"
+                               type="LaravelEnso\Hr\Models\Employee"
                                @update="$set(count, 'Files', $refs.documents.count)"/>
                         </div>
                     </tab>
@@ -19,7 +19,7 @@
                             <div class="column is-two-thirds">
                                 <comments :id="$route.params.employee"
                                     ref="comments"
-                                    type="LaravelEnso\Hr\App\Models\Employee"
+                                    type="LaravelEnso\Hr\Models\Employee"
                                     @update="$set(count, 'Comments', $refs.comments.count)"/>
                             </div>
                         </div>
@@ -34,7 +34,7 @@
 
 import { EnsoForm } from '@enso-ui/forms/bulma';
 import { Tab } from '@enso-ui/tabs/bulma';
-import { Accessories, Comments, Documents } from '@enso-ui/accessories/bulma';
+import { Accessories, Comments, Documents } from '@enso-ui/bulma';
 
 export default {
     components: {
