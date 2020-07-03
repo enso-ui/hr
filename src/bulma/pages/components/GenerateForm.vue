@@ -1,7 +1,6 @@
 <template>
     <modal class="generate-modal"
-           show
-           v-on="$listeners">
+        v-on="$listeners">
         <enso-form class="box has-background-light"
             :path="route('hr.payrolls.generate.create')"
             disable-state
